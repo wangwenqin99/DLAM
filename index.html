@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#box{
+			width: 500px;
+			height: 600px;
+			border:1px solid #999;
+			margin:30px auto;
+			position: relative;
+		}
+		/*哆啦A梦头部*/
+		#box .head{
+			width: 410px;
+			height: 380px;
+			border: 1px solid black;
+			border-radius: 50%;
+			position: relative;
+			top: 0;
+			left:50%;
+			margin-left:-206px;
+			background-color: rgb(16, 144, 227);
+			z-index: 1;
+		}
+		
+		/*哆啦A梦眼睛*/
+		#box .head .l-eye,#box .head .r-eye{
+			width: 70px;
+			background-color: #fff;
+			height: 80px;
+			border-radius: 30px/40px;
+			border:1px solid #333;
+			position: absolute;
+			top:35px;
+			z-index: 2;
+		}
+		#box .head .l-eye{
+			left:50%;
+		}
+		#box .head .r-eye{
+			right: 50%;
+		}
+		#box .head .l-eye p,#box .head .r-eye p{
+			width: 20px;
+			height: 20px;
+			/*background-color: #333;*/
+			background-image: radial-gradient(6px at 7px 7px,#fff,#333);
+			border-radius: 18px;
+			position: absolute;
+			bottom:20px;
+			transition:all 1s;
+		}
+		#box:hover .head .l-eye p{
+			left: 20px;
+		}
+		#box:hover .head .r-eye p{
+			right: 20px;
+		}
+		#box .head .l-eye p{
+			left: 10px;
+		}
+		#box .head .r-eye p{
+			right:10px;
+		}
+		/*哆啦A梦的脸*/
+		#box .head .header_border{
+			width: 330px;
+     	 	height: 290px;
+     	 	border-radius: 50%;
+		    position: absolute;
+		    top: 70px;
+		    left: 50%;
+		    margin-left: -165px;
+		    background: #fff;
+		}
+		#box .head .header_border .nose{
+			width: 40px;
+			height: 40px;
+			border:1px solid #333;
+			border-radius: 20px;
+			position: absolute;
+			left:50%;
+			margin-left: -21px;
+			top:35px;
+			z-index: 5;
+			background-image: radial-gradient(10px at 10px 18px,#fff,#f00);
+			background-color: #f00;
+		}
+		#box .head .header_border .huzi{
+			width: 300px;
+			height:100px;
+			position: absolute;
+			top:70px;
+			left:50%;
+			margin-left:-150px;
+		}
+		#box .head .header_border .huzi p{
+			width: 300px;
+			height: 1px;
+			background-color: #666;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -150px;
+		}
+		#box .head .header_border .huzi p:nth-of-type(1){
+			transform:rotate(-15deg);
+		}
+		#box .head .header_border .huzi p:nth-of-type(2){
+			transform:rotate(0deg);
+		}
+		#box .head .header_border .huzi p:nth-of-type(3){
+			transform:rotate(15deg);
+		}
+		#box .head .header_border .huzi .bug{
+			width: 160px;
+			height: 100px;
+			background-color: #fff;
+			position: absolute;
+			left:50%;
+			margin-left:-80px;
+
+		}
+		#box .head .header_border .mouse-t{
+			width: 2px;
+			height: 150px;
+			background-color: #888;
+			position: absolute;
+			left:50%;
+			margin-left: -1px;
+			top:75px;
+		}
+		#box .head .header_border .mouse{
+			width: 200px;
+			height:60px;
+			/*border-left: 2px solid #666;*/
+			border-bottom: 3px solid #666;
+			/*border-right: 2px solid #666;*/
+			border-radius: 0px 0px 100px 100px/0px 0px 60px 60px;
+			position: absolute;
+			top:165px;
+			left:50%;
+			margin-left: -102px;
+		}
+		/*哆啦A梦身体*/
+		#box .content{
+			width: 300px;
+			height: 220px;
+			/*border:1px solid #333;*/
+			position: absolute;
+			background-color: rgb(16, 144, 227);
+			border-radius: 15px 15px 0 0/15px 15px 0 0;
+			top:320px;
+			left:50%;
+			margin-left: -150px;
+			z-index: 1;
+			overflow: hidden;
+		}
+		/*围巾*/
+		#box .content .scarf{
+			width: 300px;
+			height: 20px;
+			border:1px solid #333;
+			border-radius: 15px;
+			position:absolute;
+			background-color: #a11f00;
+			z-index: 2;
+		}
+		#box .content .bell{
+			width: 38px;
+			height: 38px;
+			background-color: #d7d00e;
+			border-radius: 25px;
+			position: absolute;
+			top:5px;
+			left:50%;
+			margin-left: -20px;
+			overflow: hidden;
+			z-index: 3;
+		}
+		#box .content .bell p{
+			width: 38px;
+			height: 3px;
+			border:2px solid #333;
+			margin-top: 8px;;
+		}
+		#box .content .bell .ball{
+			width: 16px;
+			height: 14px;
+			border-radius: 50%;
+			background-color: #333;
+			position: absolute;
+			top:18px;
+			left:50%;
+			margin-left: 50%;
+			margin-left: -8px;
+			z-index: 2;
+		}
+		#box .content .bell .xian{
+			width:2px;
+			height: 10px;
+			background-color: #333;
+			position: absolute;
+			top:28px;
+			margin-left:-1px;
+			left:50%; 
+		}
+		/*肚子*/
+		#box .content .tummy{
+			width: 200px;
+			height: 200px;
+			border:1px solid #333;
+			border-radius: 50%;
+			position: absolute;
+			top:-20px;
+			left:50%;
+			background-color: #fff;
+			margin-left: -100px;
+		}
+		#box .content .tummy p{
+			width: 160px;
+			height: 80px;
+			border:2px solid #666;
+			border-radius: 0px 0px 80px 80px/0px 0px 80px 80px;
+			position: absolute; 
+			top:50%;
+			left:50%;
+			margin-left: -80px;
+		}
+		#box .content .leg{
+			width: 40px;
+			height: 20px;
+			background-color: #fff;
+			border-right: 1px solid #333;
+			border-bottom: 1px solid #fff;
+			border-left:  1px solid #333;
+			border-radius: 20px 20px 0px 0px/20px 20px 0px 0px;
+			position: absolute;bottom: -2px;
+			left:50%;
+			margin-left: -20px;
+			z-index: 5;
+		}
+		#box .l-hand,#box .r-hand{
+			width: 40px;
+			height: 80px;
+			background-color: rgb(16, 144, 227);
+			position: absolute;
+			top:320px;
+			
+		}
+		#box .l-hand{
+			transform:rotate(45deg);
+			left:82px;
+		}
+		#box .l-hand::after,#box .r-hand::after{
+			content:"";
+			width: 60px;
+			height: 60px;
+			border:1px solid #333;
+			background-color: #fff;
+			position: absolute;
+		    top: 65px;
+    		left: -10px;
+			border-radius: 50%;
+		}
+		#box .r-hand{
+			transform:rotate(-45deg);
+			right:82px;
+		}
+		/*哆啦A梦脚*/
+		#box .l-foot,#box .r-foot{
+			width: 160px;
+			height: 30px;
+			background-color: #fff;
+			border:1px solid #333;
+			border-radius: 20px/15px;
+			position: absolute;
+			top:540px;
+			
+		}
+		#box .l-foot{
+			left: 85px;
+		}
+		#box .r-foot{
+			right:85px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 盒子 -->
+	<div id="box">
+		<!-- 哆啦A梦头部 -->
+		<div class="head">
+			<!-- 哆啦A梦的脸 -->
+			<div class="header_border">
+				<!-- 鼻子 -->
+				<div class="nose"></div>
+				<!-- 胡子 -->
+				<div class="huzi">
+					<p></p>
+					<p></p>
+					<p></p>
+					<div class="bug"></div>
+				</div>
+				<!-- 嘴巴 -->
+				<div class="mouse-t"></div>
+				<div class="mouse"></div>
+			</div>
+			<!-- 哆啦A梦的眼睛 -->
+			<div class="l-eye">
+				<p></p>
+			</div>
+			<div class="r-eye">
+				<p></p>
+			</div>
+		</div>
+		<!-- 哆啦A梦身体 -->
+		<div class="content">
+			<!-- 围巾 -->
+			<div class="scarf"></div>
+			<!-- 铃铛	 -->
+			<div class="bell">
+				<p></p>
+				<div class="ball"></div>
+				<div class="xian"></div>
+			</div>
+			<!-- 肚子 -->
+			<div class="tummy">
+				<p></p>
+			</div>
+			<div class="leg"></div>
+		</div>
+		<!-- 哆啦A梦手 -->
+		<div class="l-hand"></div>
+		<div class="r-hand"></div>
+		<!-- 哆啦A梦脚 -->
+		<div class="l-foot"></div>
+		<div class="r-foot"></div>
+	</div>
+</body>
+</html>
